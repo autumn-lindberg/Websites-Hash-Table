@@ -124,29 +124,19 @@ bool List::addSite(Website * w) {
 }
 // add website to list recursively in order of rating
 bool List::addWebsite(Website * w, Node * current) {
-	Node * n = new Node(w);
-	// if list is empty or inserting at head
-	if (!current || current->data->getRating() >= n->data->getRating()) {
-		n->next = head;
-		this->head = n;
-		this->size++;
+	if (!current) {
+		current = new Node(w);
 		return true;
 	}
-	else {
-		// navigate to head recursively using look ahead
-		if (current->next && *(current->next->data) < *(n->data)) {
-			delete n;
-			addWebsite(w, current->next);
-		}
-		else {
-			// insert node after current and before current next
-			n->next = current->next;
-			current->next = n;
-			this->size++;
-			return true;
-		}
+	if (w->getRating() < current->data->getRating()) {
+		Node * newNode = new Node(w);
+		if (current == this->head) this->head = newNode;
+		newNode->next = current;
+		current = newNode;
+		return true;
 	}
-	return false;
+	addWebsite(w, current->next);
+	return true;
 }
 // edit rating for a given website
 bool List::editRating(char * websiteName, int rating) {
@@ -213,7 +203,7 @@ bool List::editReview(char * websiteName, char * review, Node * current) {
 }
 // remove websites under a given review threshold
 bool List::removeSitesUnder(int rating) {
-	//return removeSitesUnder(rating, this->head);
+	return removeSitesUnder(rating, this->head);
 	Node * current = this->head;
 	Node * temp = nullptr;
 	bool found = false;
@@ -243,30 +233,16 @@ bool List::removeSitesUnder(int rating) {
 }
 // remove websites under a given review threshold recursively
 bool List::removeSitesUnder(int rating, Node * current) {
-	Node * temp = nullptr;
-	bool found = false;
-	// check head, then remove head if less than threshold
-	// while loop to remove consecutive values
-	while (current && current->data->getRating() < rating) {
-		this->head = this->head->next;
-		delete current;
-		// reset current
-		current = this->head;
-		this->size--;
-		found = true;
+	if (!current) return false;
+	if (current->data->getRating() < rating) {
+		if (current == this->head) this->head = this->head->next;
+		Node * dummy = current;
+		current = current->next;
+		delete dummy;
+		size--;
 	}
-	// search recursively using look ahead
-	if (current->next) {
-		if (current->next->data->getRating() < rating) {
-			temp = current->next;
-			current->next = current->next->next;
-			delete temp;
-			this->size--;
-			found = true;
-		}
-		removeSitesUnder(rating, current->next);
-	}
-	return found;
+	return removeSitesUnder(rating, current->next);
+	return true;
 }
 // get length of list
 int List::getSize() const {
