@@ -1,0 +1,124 @@
+Name: Autumn Valls
+Assignment: Project 3
+Professor: Li Liang
+
+///////////////////////////// PURPOSE /////////////////////////////////
+
+The purpose of this document is to examine the planning process that
+went into creating project three. Project three is an implementation of
+hash table using chaining. The hash table is implemented using an array
+of linked lists, each linked list containing Websites.
+
+////////////////////////////// SCOPE //////////////////////////////////
+
+Throughout this document, we will take a look at the thought process
+behind creating each element of project three. We will examine how each
+abstract data type is designed, and explain the memory management 
+optimization techniques that will be used to implement the classes.
+Additionally, we will evaluate the design of the user experience and 
+how to create a pleasant environment for testing and grading the program.
+
+////////////////////////////// INDEX ///////////////////////////////////
+
+    
+    1   -   The Webiste Class
+
+                Design
+                Memory Management
+
+
+    2   -   The List Class
+
+		Design
+                Memory Management
+
+
+    3   -   The Table Class
+
+                Design
+                Memory Management
+
+
+    4   -   User Experience
+
+                Encapsulation
+
+
+///////////////////  1   -   The Website Class  ///////////////////////
+
+The Website class represents a specific webpage on the internet. Properties
+of the Website class include the page name, its URL, a topic, a description,
+a review of the site, and a rating from one to five of the site. The
+Website class' public interface includes several constructors, several
+overloaded operators (assignment, output, and comparison operators), and
+and a set of gettes and setters for each property. The comparison operators
+compare the ratings to each other. Lastly, there is a display function that
+displays the website in a neat way.
+
+The copy constructor and copy assignment operator are implemented to ensure
+memory efficiency. All dynamic values (all but one property are char arrays)
+are copies using deep copies, so that values are preserved if the original
+pointers are lost.
+
+/////////////////////  2   -   The List Class  /////////////////////////
+
+The List class is a generic representation of a linked list that is designed
+to reflect the functions of the hash table (mentioned later). The List
+class' public interface consists of the necessary constructors, a destructor,
+and overloaded operators. The comparison operators compare lists by size.
+Additionally, both iterative and recursive implementations are written for
+display, insert, edit, and remove functions. None of the recursive
+implementations are used, but they have been tested. Lastly a getter for size,
+an isEmpty boolean, a find boolean, and a retrieve function are included
+to get further information about a given linked list.
+
+To ensure that the List class is memory efficient, all functions that change
+or create new dynamic memory also manage it appropriately. The destructor
+de-allocates Nodes in the list, and in turn their website data. There is a
+distinct connection between the functions of the List class and the functions
+of the Table class, so that the table class is easy to use and requires
+minimal additional writng to function.																																																																																																																																																																												
+
+/////////////////////  3   -   The Table Class  ////////////////////////
+
+The Table class is a representation of a hash table using a dynamically
+sized array. For a sample data of twelve records, I chose a table size of
+eight so that a few indices could be demonstrated to be blank. The hash
+function takes the first three letters' ASCII values and sums them, then
+takes the modulus of that and the table size. This guarantees a value from
+zero to eight (perfect for the range of indices of our array). The public
+interface consists of constructors, a destructor, and two overloaded
+operators. Other functions include add, retrieve, edit, remove, and display.
+
+Notice that several of those functions are also present in the List class.
+Most of the public functions are simply calling the list's matching functions
+with the same parameters. The correct linked list is found by hashing a
+topic and storing it in an integer.
+
+As for memory management, not much is needed. The lists in the dynamic
+array's private interface are not pointers, so they do not need to be
+memory managed. The only memory management is in the add function, when
+topics (a dynamic char array) are compared.
+
+///////////////////  4   -   The User Experience  //////////////////////
+
+The user experience will involve an easy-to-use menu where the user can
+select the operation that they wish to perform on the The hash table.
+The best thing about this is that the operations are limited to what the
+hash table is capable of doing. A Website is placed in the proper linked
+list via hashing, and it is placed in order via the list's add function.
+
+Helper functions are implemened to make the input process easier. In my
+helper directory, there are getter functions to get input from the user
+for int, char, and char arrays (right sized input). Additionally, the same
+helper functions are implemented for getting int, char, and char arrays from
+an input file. The implementations for getting input from a file include a
+parameter for the delimeter to read until.
+
+The program is designed so that main() is very easy to read, and everything
+is encapsulated into functions to ensure that. Functions are accurately
+named to describe what they do, and comments are written to clarify the purpose
+of each function written.
+
+
+

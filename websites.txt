@@ -1,0 +1,12 @@
+Google,www.google.com,Search Engine,The World's Most Powerful Search Engine,Fast and easy to use!,5
+Bing,www.bing.com,Search Engine,The World's Second Most Popular Search Engine,Great results provided!,4
+DuckDuckGo,www.duckduckgo.com,Search Engine,The World's Most Secure Search Enging,Say goodbye to targeted ads!,5
+Khan Academy,www.khanacademy.org,Education,Learn Anything For Free,Education is a right; Khan Academy makes education more accessible to everyone!,5
+Portland Community College,www.pcc.edu,Education,Portland's Most Accessible College,Getting a higher education has been made more affordable!,5
+Wikipedia,www.wikipedia.org,Education,A Free Encyclopedia,Not a reliable source of information. One star.,1
+Amazon,www.amazon.com,Shopping,Get Anything Shipped Straight To Your Door,Prime shipping is the best!,4
+Target,www.target.com,Shopping,Expect More. Pay Less.,Buying online and picking up in store has never been easier!,4
+Grubhub,www.grubhub.com,Food Delivery,Order Food Now!,Great delivery prices and fast service.,5
+Uber Eats,www.ubereats.com,Food Delivery,Food Delivery And Takeout,Fast and easy delivery to my door!,3
+Doordash,www.doordash.com,Food Delivery,Takeout And Delivery From Restaurants Near You!,Dashers are the fastest delivery drivers I know!,4
+Postmates,www.postmates.com,Food Delivery,Food And Grocery Delivery,Best restaurant selection around.,4

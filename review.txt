@@ -1,0 +1,85 @@
+Name: Autumn Valls
+Assignment: Project 3
+Professor: Li Liang
+
+///////////////////////////// PURPOSE /////////////////////////////////
+
+The purpose of this document is to analyze the efficiency of the program
+written for project 3. Project 3 was an implementation of a hash table
+that is used to represent different webpages on the internet. Operations
+for the table include adding, editing, displaying, and removing websites
+that meet certain criteria.
+
+////////////////////////////// SCOPE //////////////////////////////////
+
+In this document we will analyze how well a hash table works to represent 
+webpages on the internet, and how they perform in storing these objects.
+The hash table was implemented using chaining, and will be described in
+its own section. Additionally, we will ponder possible solutions to the
+shortfalls in these representations.
+
+/////////////////////////////// INDEX ////////////////////////////////
+
+
+    1   -   Linked Lists
+
+		Benefits
+		Drawbacks
+
+
+    2   -   Hash Tables
+
+		Benefits
+		rawbacks
+
+
+    3   -   Better Solutions
+
+		Queues
+		Stacks
+
+
+////////////////////// 1   -   Linked Lists //////////////////////////
+
+A linked list is the main component in the implementation of the hash
+table. Linked lists can be beneficial for performance if they are
+unordered because insertion always takes the same amount of time, and
+no traversal is needed. However, in this application I chose to sort each
+linked list by rating. This reduces the performance of the program.
+
+I think that an unordered list would serve much better for a hash table.
+The only other alternative would be a collision prevention algorithm,
+which can vary hugely in performance. The linked list is kept short
+because of the small sample data set, so it's hard to tell how websites
+are distributed throughout the table. If I were to re-do this program,
+I would have added more topics and entries into the sample data, and see
+how it affects the performance of the linked list.
+
+/////////////////////  2   -   Hash Tables //////////////////////////
+
+The hash table as a data structure provides excellent performance.
+Incredibly, the hash table's time complexity is constant - the fastest
+possible time complexity! Hash tables are an efficient way to store 
+any amount of data without sacrificing performance.
+
+I don't think that there are any drawbacks to using a hash table as far
+as memory usage and performance goes. After writing and analyzing this
+program, I am left wondering if the hash table can be modified to be an
+array of other data structures like a queue or stack.
+
+////////////////////  3   -   Better Solutions  ////////////////////////
+
+I don't think a better solution to storing webpages in a data structure.
+O(1) data structures don't lose performance with enormous amounts of data,
+so storing large quantities of webpages would be no problem. I think this
+would be a great practical application for a web crawler gaining information
+about a certain topic.
+
+As for the linked list, I definitely should have left it unordered. I think
+that having the linked lists ordered is unnecessary, and ultimately
+sacrifices the structure's O(1) efficiency. I opted to try and sort the
+linked lists because I wanted more practice with linked list algorithms,
+especially recursive ones. However, so little data is being handled in
+this program that ultimately that shakes out to be a good thing.
+
+
